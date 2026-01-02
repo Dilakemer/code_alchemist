@@ -1,0 +1,54 @@
+# Environment variables (ASLA commit etmeyin!)
+.env
+*.env.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+
+# Database
+*.db
+instance/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Uploads
+uploads/
+
+# Logs
+*.log
+
+# Node modules (client)
+node_modules/
+
+# User exclusions
+README.md
+README*
+test_*.py
+verify_*.py
+tests/
+*.test.*
+**/tests/**
+**/test_**
+**/verify_*
+fix_*.py
+server/fix_*.py
+**/check_models.py
+**/list_models.py
+**/inspect_*.py
+migrate_*.py
+**/migrate_*.py
+decode_qr.py
+share_app.py
+qr_output.txt
+lines.txt
