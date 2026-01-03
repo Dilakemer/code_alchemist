@@ -1,0 +1,99 @@
+{
+    "version": "1.0",
+    "description": "TestBed Kategori Tanımları",
+    "categories": {
+        "syntax": {
+            "name": "Sözdizimi Hataları",
+            "name_en": "Syntax Errors",
+            "description": "Programlama dillerindeki sözdizimi hatalarının tespiti ve düzeltilmesi",
+            "metrics": [
+                "error_detection_accuracy",
+                "fix_correctness",
+                "response_time"
+            ],
+            "weight": 0.20
+        },
+        "logic": {
+            "name": "Mantıksal Hatalar",
+            "name_en": "Logic Bugs",
+            "description": "Kodun çalışmasına rağmen yanlış sonuç üreten mantıksal hataların tespiti",
+            "metrics": [
+                "bug_detection_accuracy",
+                "fix_correctness",
+                "explanation_quality"
+            ],
+            "weight": 0.30
+        },
+        "algorithm": {
+            "name": "Algoritma Tasarımı",
+            "name_en": "Algorithm Design",
+            "description": "Verilen probleme uygun algoritma tasarlama ve uygulama",
+            "metrics": [
+                "correctness",
+                "efficiency",
+                "code_quality",
+                "test_pass_rate"
+            ],
+            "weight": 0.30
+        },
+        "optimization": {
+            "name": "Performans Optimizasyonu",
+            "name_en": "Performance Optimization",
+            "description": "Mevcut kodun zaman ve alan karmaşıklığını iyileştirme",
+            "metrics": [
+                "complexity_improvement",
+                "correctness_preserved",
+                "explanation_quality"
+            ],
+            "weight": 0.20
+        }
+    },
+    "difficulty_levels": {
+        "easy": {
+            "name": "Kolay",
+            "points": 1,
+            "expected_response_time_seconds": 30
+        },
+        "medium": {
+            "name": "Orta",
+            "points": 2,
+            "expected_response_time_seconds": 60
+        },
+        "hard": {
+            "name": "Zor",
+            "points": 3,
+            "expected_response_time_seconds": 120
+        }
+    },
+    "supported_languages": [
+        "python",
+        "javascript",
+        "java",
+        "cpp",
+        "csharp",
+        "go",
+        "rust"
+    ],
+    "evaluation_metrics": {
+        "correctness": {
+            "description": "Üretilen kodun doğru çalışıp çalışmadığı",
+            "weight": 0.40
+        },
+        "response_time": {
+            "description": "Modelin yanıt süresi (saniye)",
+            "weight": 0.15
+        },
+        "code_quality": {
+            "description": "Kod okunabilirliği ve best practices uyumu",
+            "weight": 0.20
+        },
+        "explanation_quality": {
+            "description": "Açıklamanın anlaşılırlığı ve doğruluğu",
+            "weight": 0.15
+        },
+        "hallucination_rate": {
+            "description": "Yanlış veya uydurma bilgi oranı",
+            "weight": 0.10
+        }
+    }
+}

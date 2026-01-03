@@ -1,0 +1,285 @@
+{
+    "version": "1.0",
+    "description": "CodeAlchemist TestBed - Programlama Soruları Veri Seti",
+    "categories": [
+        "syntax",
+        "logic",
+        "algorithm",
+        "optimization"
+    ],
+    "questions": [
+        {
+            "id": "SYN001",
+            "category": "syntax",
+            "difficulty": "easy",
+            "language": "python",
+            "title": "Sözdizimi Hatası Düzeltme",
+            "question": "Aşağıdaki Python kodundaki sözdizimi hatasını düzeltin:\n\ndef hello_world()\n    print('Hello, World!')",
+            "expected_fix": "def hello_world():\n    print('Hello, World!')",
+            "tags": [
+                "syntax-error",
+                "function-definition"
+            ]
+        },
+        {
+            "id": "SYN002",
+            "category": "syntax",
+            "difficulty": "easy",
+            "language": "javascript",
+            "title": "JavaScript Arrow Function Hatası",
+            "question": "Aşağıdaki JavaScript kodundaki hatayı düzeltin:\n\nconst add = (a, b) =>\n  return a + b;\n}",
+            "expected_fix": "const add = (a, b) => {\n  return a + b;\n};",
+            "tags": [
+                "syntax-error",
+                "arrow-function"
+            ]
+        },
+        {
+            "id": "LOG001",
+            "category": "logic",
+            "difficulty": "medium",
+            "language": "python",
+            "title": "Fibonacci Off-by-One Hatası",
+            "question": "Aşağıdaki Fibonacci fonksiyonu yanlış sonuç döndürüyor. Mantıksal hatayı bulun ve düzeltin:\n\ndef fibonacci(n):\n    if n <= 1:\n        return n\n    return fibonacci(n-1) + fibonacci(n-3)",
+            "expected_fix": "def fibonacci(n):\n    if n <= 1:\n        return n\n    return fibonacci(n-1) + fibonacci(n-2)",
+            "tags": [
+                "logic-bug",
+                "recursion",
+                "fibonacci"
+            ]
+        },
+        {
+            "id": "LOG002",
+            "category": "logic",
+            "difficulty": "medium",
+            "language": "python",
+            "title": "Binary Search Sonsuz Döngü",
+            "question": "Aşağıdaki binary search fonksiyonu sonsuz döngüye giriyor. Hatayı bulun:\n\ndef binary_search(arr, target):\n    left, right = 0, len(arr) - 1\n    while left <= right:\n        mid = (left + right) // 2\n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            left = mid\n        else:\n            right = mid\n    return -1",
+            "expected_fix": "def binary_search(arr, target):\n    left, right = 0, len(arr) - 1\n    while left <= right:\n        mid = (left + right) // 2\n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            left = mid + 1\n        else:\n            right = mid - 1\n    return -1",
+            "tags": [
+                "logic-bug",
+                "binary-search",
+                "infinite-loop"
+            ]
+        },
+        {
+            "id": "LOG003",
+            "category": "logic",
+            "difficulty": "hard",
+            "language": "python",
+            "title": "Linked List Döngü Tespiti",
+            "question": "Aşağıdaki kod linked list'te döngü olup olmadığını kontrol etmeye çalışıyor ancak hatalı. Düzeltin:\n\ndef has_cycle(head):\n    slow = head\n    fast = head\n    while fast and fast.next:\n        slow = slow.next\n        fast = fast.next\n        if slow == fast:\n            return True\n    return False",
+            "expected_fix": "def has_cycle(head):\n    slow = head\n    fast = head\n    while fast and fast.next:\n        slow = slow.next\n        fast = fast.next.next\n        if slow == fast:\n            return True\n    return False",
+            "tags": [
+                "logic-bug",
+                "linked-list",
+                "floyd-algorithm"
+            ]
+        },
+        {
+            "id": "ALG001",
+            "category": "algorithm",
+            "difficulty": "easy",
+            "language": "python",
+            "title": "İki Sayının Toplamı",
+            "question": "Bir liste ve hedef sayı verildiğinde, toplamı hedefe eşit olan iki elemanın indekslerini döndüren bir fonksiyon yazın.",
+            "expected_output": "def two_sum(nums, target):\n    seen = {}\n    for i, num in enumerate(nums):\n        complement = target - num\n        if complement in seen:\n            return [seen[complement], i]\n        seen[num] = i\n    return []",
+            "test_cases": [
+                {
+                    "input": {
+                        "nums": [
+                            2,
+                            7,
+                            11,
+                            15
+                        ],
+                        "target": 9
+                    },
+                    "output": [
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "input": {
+                        "nums": [
+                            3,
+                            2,
+                            4
+                        ],
+                        "target": 6
+                    },
+                    "output": [
+                        1,
+                        2
+                    ]
+                },
+                {
+                    "input": {
+                        "nums": [
+                            3,
+                            3
+                        ],
+                        "target": 6
+                    },
+                    "output": [
+                        0,
+                        1
+                    ]
+                }
+            ],
+            "tags": [
+                "algorithm",
+                "hash-table",
+                "two-pointers"
+            ]
+        },
+        {
+            "id": "ALG002",
+            "category": "algorithm",
+            "difficulty": "medium",
+            "language": "python",
+            "title": "En Uzun Palindrom Alt Dizisi",
+            "question": "Verilen bir string içindeki en uzun palindromik alt diziyi bulan bir fonksiyon yazın.",
+            "expected_output": "def longest_palindrome(s):\n    if not s:\n        return ''\n    \n    def expand_around_center(left, right):\n        while left >= 0 and right < len(s) and s[left] == s[right]:\n            left -= 1\n            right += 1\n        return s[left + 1:right]\n    \n    result = ''\n    for i in range(len(s)):\n        odd = expand_around_center(i, i)\n        even = expand_around_center(i, i + 1)\n        result = max(result, odd, even, key=len)\n    return result",
+            "test_cases": [
+                {
+                    "input": {
+                        "s": "babad"
+                    },
+                    "output": [
+                        "bab",
+                        "aba"
+                    ]
+                },
+                {
+                    "input": {
+                        "s": "cbbd"
+                    },
+                    "output": "bb"
+                },
+                {
+                    "input": {
+                        "s": "a"
+                    },
+                    "output": "a"
+                }
+            ],
+            "tags": [
+                "algorithm",
+                "dynamic-programming",
+                "string"
+            ]
+        },
+        {
+            "id": "ALG003",
+            "category": "algorithm",
+            "difficulty": "hard",
+            "language": "python",
+            "title": "Merge K Sorted Lists",
+            "question": "K adet sıralı linked list'i birleştirerek tek bir sıralı liste oluşturun.",
+            "expected_output": "import heapq\n\ndef merge_k_lists(lists):\n    heap = []\n    for i, lst in enumerate(lists):\n        if lst:\n            heapq.heappush(heap, (lst.val, i, lst))\n    \n    dummy = ListNode(0)\n    current = dummy\n    \n    while heap:\n        val, i, node = heapq.heappop(heap)\n        current.next = node\n        current = current.next\n        if node.next:\n            heapq.heappush(heap, (node.next.val, i, node.next))\n    \n    return dummy.next",
+            "tags": [
+                "algorithm",
+                "heap",
+                "linked-list",
+                "divide-conquer"
+            ]
+        },
+        {
+            "id": "OPT001",
+            "category": "optimization",
+            "difficulty": "medium",
+            "language": "python",
+            "title": "N-Kare Zaman Karmaşıklığı Optimizasyonu",
+            "question": "Aşağıdaki O(n²) karmaşıklığındaki duplicate bulma fonksiyonunu O(n) karmaşıklığına optimize edin:\n\ndef find_duplicates(arr):\n    duplicates = []\n    for i in range(len(arr)):\n        for j in range(i + 1, len(arr)):\n            if arr[i] == arr[j] and arr[i] not in duplicates:\n                duplicates.append(arr[i])\n    return duplicates",
+            "expected_fix": "def find_duplicates(arr):\n    seen = set()\n    duplicates = set()\n    for num in arr:\n        if num in seen:\n            duplicates.add(num)\n        seen.add(num)\n    return list(duplicates)",
+            "tags": [
+                "optimization",
+                "time-complexity",
+                "hash-set"
+            ]
+        },
+        {
+            "id": "OPT002",
+            "category": "optimization",
+            "difficulty": "hard",
+            "language": "python",
+            "title": "Recursive Fibonacci Memoization",
+            "question": "Aşağıdaki recursive Fibonacci fonksiyonu çok yavaş. Memoization kullanarak optimize edin:\n\ndef fibonacci(n):\n    if n <= 1:\n        return n\n    return fibonacci(n-1) + fibonacci(n-2)",
+            "expected_fix": "from functools import lru_cache\n\n@lru_cache(maxsize=None)\ndef fibonacci(n):\n    if n <= 1:\n        return n\n    return fibonacci(n-1) + fibonacci(n-2)",
+            "tags": [
+                "optimization",
+                "memoization",
+                "dynamic-programming"
+            ]
+        },
+        {
+            "id": "TR001",
+            "category": "algorithm",
+            "difficulty": "easy",
+            "language": "python",
+            "title": "Türkçe Karakter Sayacı",
+            "question": "Verilen bir metindeki Türkçe karakterlerin (ş, ğ, ü, ö, ç, ı, İ, Ş, Ğ, Ü, Ö, Ç) sayısını bulan bir fonksiyon yazın.",
+            "expected_output": "def count_turkish_chars(text):\n    turkish_chars = 'şğüöçıİŞĞÜÖÇ'\n    return sum(1 for char in text if char in turkish_chars)",
+            "test_cases": [
+                {
+                    "input": {
+                        "text": "Merhaba dünya"
+                    },
+                    "output": 1
+                },
+                {
+                    "input": {
+                        "text": "İstanbul güzel şehir"
+                    },
+                    "output": 4
+                },
+                {
+                    "input": {
+                        "text": "Hello World"
+                    },
+                    "output": 0
+                }
+            ],
+            "tags": [
+                "algorithm",
+                "turkish",
+                "string"
+            ]
+        },
+        {
+            "id": "TR002",
+            "category": "algorithm",
+            "difficulty": "medium",
+            "language": "python",
+            "title": "Türkçe Sıralama",
+            "question": "Türkçe alfabeye göre doğru sıralama yapan bir fonksiyon yazın. (ç, c'den sonra; ğ, g'den sonra vb.)",
+            "expected_output": "import locale\n\ndef turkish_sort(words):\n    locale.setlocale(locale.LC_ALL, 'tr_TR.UTF-8')\n    return sorted(words, key=locale.strxfrm)",
+            "test_cases": [
+                {
+                    "input": {
+                        "words": [
+                            "çay",
+                            "araba",
+                            "gül",
+                            "ğüzel"
+                        ]
+                    },
+                    "output": [
+                        "araba",
+                        "çay",
+                        "gül",
+                        "ğüzel"
+                    ]
+                }
+            ],
+            "tags": [
+                "algorithm",
+                "turkish",
+                "sorting",
+                "locale"
+            ]
+        }
+    ]
+}
