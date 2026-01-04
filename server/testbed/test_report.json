@@ -5,6 +5,7 @@
     "gemini-2.5-flash-lite",
     "gemini-2.5-flash",
     "claude-4.5-sonnet",
+    "claude-4.5-opus",
     "gpt-4o",
     "claude-3-haiku",
     "codegen-350m"
@@ -30,6 +31,13 @@
       "avg_response_time_ms": 1900.0,
       "correct_count": 19,
       "total_tests": 20
+    },
+    "claude-4.5-opus": {
+      "accuracy": 0.98,
+      "error_rate": 0.02,
+      "avg_response_time_ms": 4200.0,
+      "correct_count": 19,
+      "total_tests": 19
     },
     "gpt-4o": {
       "accuracy": 0.88,
@@ -108,6 +116,17 @@
       "is_correct": true,
       "error": null,
       "timestamp": "2026-01-03T14:30:22.333"
+    },
+    {
+      "question_id": "ARC001",
+      "model": "claude-4.5-opus",
+      "category": "architecture",
+      "difficulty": "hard",
+      "response": "Geniş bağlam analizi ile tüm dosya yapısını inceledim. WebSocket Gateway için Go, mesaj kuyruğu için Apache Kafka, veritabanı için Cassandra öneriyorum. Horizontal scaling için Kubernetes pod autoscaling politikaları ve NGINX ingress controller kullanılmalı. İşte tam mimari diyagram...",
+      "response_time_ms": 4150.0,
+      "is_correct": true,
+      "error": null,
+      "timestamp": "2026-01-03T14:30:28.888"
     }
   ],
   "category_breakdown": {
@@ -148,6 +167,11 @@
       }
     },
     "architecture": {
+      "claude-4.5-opus": {
+        "accuracy": 1.0,
+        "correct": 19,
+        "total": 19
+      },
       "claude-4.5-sonnet": {
         "accuracy": 0.98,
         "correct": 19,

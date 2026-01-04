@@ -314,6 +314,7 @@ def main():
         "gemini-2.5-flash-lite",
         "gpt-4o",
         "claude-4.5-sonnet",
+        "claude-4.5-opus",
         "claude-3-haiku",
         "codegen-350m"
     ]
