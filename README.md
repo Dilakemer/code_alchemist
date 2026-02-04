@@ -156,7 +156,7 @@ Uygulama `http://localhost:5173` adresinde çalışacaktır.
 ## 👥 Ekip
 
 - **Dila KEMER** - *Lead Developer & AI Architect*
-- **Azra Nur AKBABA** - *Full-Stack Engineer (Frontend & Backend) | UI/UX DesigneEngineer & UI/UX Designer*
+- **Azra Nur AKBABA** - *Lead Developer & Full-Stack Engineer (Frontend & Backend)*
 
 ---
 
